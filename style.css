@@ -52,6 +52,19 @@ body {
     top:-120px;
     left:60px;
 }
+.simba-links
+{
+    position: relative;
+    top:-56px;
+    left:50px;
+}
+.gold-links
+{
+    position: relative;
+    top:-86px;
+    left:680px;
+}
+
 .oslink {
   color: black;
 }
