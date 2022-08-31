@@ -27,42 +27,49 @@ body {
     position: relative;
     top:-150px;
     left:200px;
+    width:250px;
 }
 .cheshire-links
 {
     position: relative;
     top:-144px;
     left:56px;
+    width:250px;
 }
 .pp-links
 {
     position: relative;
     top:-110px;
     left:210px;
+    width:250px;
 }
 .alien-links
 {
     position: relative;
     top:-110px;
     left:215px;
+    width:250px;
 }
 .zombie-links
 {
     position: relative;
     top:-120px;
     left:60px;
+    width:250px;
 }
 .simba-links
 {
     position: relative;
     top:-56px;
     left:50px;
+    width:250px;
 }
 .gold-links
 {
     position: relative;
     top:-86px;
     left:680px;
+    width:250px;
 }
 
 .oslink {
