@@ -72,6 +72,14 @@ body {
     width:250px;
 }
 
+.pika-links
+{
+    position: relative;
+    top:-58px;
+    left:380px;
+    width:250px;
+}
+
 .oslink {
   color: black;
 }
