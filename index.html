@@ -16,7 +16,7 @@
         
         <title>Rate My Mooncat</title>
     </head>
-    <body>
+    <body onload="generateMarketplaceUrls();">
         <div class="container">
             <div class="topbar">
                  <div class="toptitle">
@@ -26,72 +26,285 @@
                 </div>
                 <div class="topnav">
                     <a href="/links">Links</a>
-                    <a href="/categories">Categories</a>
+                    <a href="/visual">Visual ID</a>
+                    <a href="/categories">Collection Categories</a>
                     <a class="active" href="/">Character Cats</a>
                 </div>
             </div>
             <img class="chart" src="img/garfield_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/garfield_supply.jpg">
-                <div class="garfield-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=16&search[numericTraits][0][ranges][0][max]=49&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Hue&search[stringTraits][0][values][0]=Orange&search[stringTraits][0][values][1]=Yellow&search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]=Tabby&search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]=Normal" target="_blank">Garfield (all)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][max]=40&search[numericTraits][0][ranges][0][min]=25&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Tabby&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Normal&search[stringTraits][2][name]=Coat%20Hue&search[stringTraits][2][values][0]=Orange&search[stringTraits][3][name]=Expression&search[stringTraits][3][values][0]=Smiling&search[stringTraits][3][values][1]=Pouting&search[stringTraits][3][values][2]=Grumpy" target="_blank">Garfield (⭐⭐)</a>
+            <div class="garfield-links">
+                <div class="link-grid">
+                    <div class="character-name">Garfield (all)</div>
+                    <a class="marketplace-link" id="garfield-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="garfield-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
+                </div>
+                <hr class="link-divider">
+                <div class="link-grid">
+                    <div class="character-name">Garfield (⭐⭐)</div>
+                    <a class="marketplace-link" id="garfield-premium-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="garfield-premium-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>
                 </div>
             </div>
             <img class="chart" src="img/cheshire_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/cheshire_supply.jpg">
-                <div class="cheshire-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=265&search[numericTraits][0][ranges][0][max]=320&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Tabby&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Pale&search[stringTraits][2][name]=Coat%20Hue&search[stringTraits][2][values][0]=Magenta&search[stringTraits][2][values][1]=Purple&search[stringTraits][2][values][2]=Fuchsia" target="_blank">Cheshire Cat (all)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=280&search[numericTraits][0][ranges][0][max]=305&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Tabby&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Pale&search[stringTraits][2][name]=Expression&search[stringTraits][2][values][0]=Smiling&search[stringTraits][3][name]=Coat%20Hue&search[stringTraits][3][values][0]=Magenta&search[stringTraits][3][values][1]=Purple" target="_blank">Cheshire Cat (⭐⭐)</a>
+            <div class="cheshire-links">
+                <div class="link-grid">
+                    <div class="character-name">Cheshire Cat (all)</div>
+                    <a class="marketplace-link" id="cheshire-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="cheshire-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
+                </div>
+                <hr class="link-divider">
+                <div class="link-grid">
+                    <div class="character-name">Cheshire Cat (⭐⭐)</div>
+                    <a class="marketplace-link" id="cheshire-premium-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="cheshire-premium-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>
                 </div>
             </div>
-            <img class="chart" src="img/pp_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/pp_supply.jpg">
-                <div class="pp-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=325&search[numericTraits][0][ranges][0][max]=334&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Pure&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Pale&search[stringTraits][2][name]=Coat%20Hue&search[stringTraits][2][values][0]=Fuchsia" target="_blank">Pink Panther (⭐ Fuchsia)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=0&search[numericTraits][0][ranges][0][max]=10&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Pure&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Pale&search[stringTraits][2][name]=Coat%20Hue&search[stringTraits][2][values][0]=Red" target="_blank">Pink Panther (⭐ Red)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=335&search[numericTraits][0][ranges][0][max]=355&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Hue&search[stringTraits][0][values][0]=Red&search[stringTraits][0][values][1]=Fuchsia&search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]=Pure&search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]=Pale" target="_blank">Pink Panther (⭐⭐)</a><br>
+            <img class="chart" src="img/pinkpanther_chart.jpg">
+            <div class="pinkpanther-links">
+                <div class="link-grid">
+                    <div class="character-name">Pink Panther (all)</div>
+                    <a class="marketplace-link" id="pinkpanther-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="pinkpanther-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
                 </div>
+                <hr class="link-divider">
+                <div class="link-grid">
+                    <div class="character-name">Pink Panther (⭐⭐)</div>
+                    <a class="marketplace-link" id="pinkpanther-premium-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="pinkpanther-premium-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>
+                </div>
+                <div class="pinkpanther-links-comment">*OpenSea does not support a hue range filter crossing over 0 so the links above only filter for cats up to hue 359. The Blur filter works fine.</div>
             </div>
             <img class="chart" src="img/alien_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/alien_supply.jpg">
-                <div class="alien-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][max]=235&search[numericTraits][0][ranges][0][min]=195&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Hue&search[stringTraits][0][values][0]=Sky%20Blue&search[stringTraits][0][values][1]=Blue&search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]=Pure&search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]=Pale" target="_blank">Alien (all)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=205&search[numericTraits][0][ranges][0][max]=225&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Pattern&search[stringTraits][0][values][0]=Pure&search[stringTraits][1][name]=Coat%20Saturation&search[stringTraits][1][values][0]=Pale&search[stringTraits][2][name]=Coat%20Hue&search[stringTraits][2][values][0]=Sky%20Blue" target="_blank">Alien (⭐⭐)</a>
+            <div class="alien-links">
+                <div class="link-grid">
+                    <div class="character-name">Alien (all)</div>
+                    <a class="marketplace-link" id="alien-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="alien-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
+                </div>
+                <hr class="link-divider">
+                <div class="link-grid">
+                    <div class="character-name">Alien (⭐⭐)</div>
+                    <a class="marketplace-link" id="alien-premium-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="alien-premium-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>
                 </div>
             </div>
             <img class="chart" src="img/zombie_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/zombie_supply.jpg">
-                <div class="zombie-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][max]=170&search[numericTraits][0][ranges][0][min]=115&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Hue&search[stringTraits][0][values][0]=Cyan&search[stringTraits][0][values][1]=Teal&search[stringTraits][0][values][2]=Green&search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]=Pure&search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]=Pale" target="_blank">Zombie (all)</a><br>
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=130&search[numericTraits][0][ranges][0][max]=155&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat%20Hue&search[stringTraits][0][values][0]=Cyan&search[stringTraits][0][values][1]=Teal&search[stringTraits][0][values][2]=Green&search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]=Pure&search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]=Pale" target="_blank">Zombie (⭐⭐)</a>
+            <div class="zombie-links">
+                <div class="link-grid">
+                    <div class="character-name">Zombie (all)</div>
+                    <a class="marketplace-link" id="zombie-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="zombie-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
+                </div>
+                <hr class="link-divider">
+                <div class="link-grid">
+                    <div class="character-name">Zombie (⭐⭐)</div>
+                    <a class="marketplace-link" id="zombie-premium-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="zombie-premium-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>
                 </div>
             </div>
-            <img class="chart" src="img/simba-gold_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/simba-gold_supply.jpg">
-                <div class="simba-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=20&search[numericTraits][0][ranges][0][max]=45&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat&search[stringTraits][0][values][0]=Orange%20Pure" target="_blank">Simba (all)</a><br>
-                </div>
-                <div class="gold-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=46&search[numericTraits][0][ranges][0][max]=56&search[sortAscending]=true&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat&search[stringTraits][0][values][0]=Yellow%20Pure" target="_blank">Golden Lucky Cat (all)</a><br>
+            <img class="chart" src="img/simba_chart.jpg">
+            <div class="simba-links">
+                <div class="link-grid">
+                    <div class="character-name">Simba (all)</div>
+                    <a class="marketplace-link" id="simba-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="simba-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
                 </div>
             </div>
-            <img class="chart" src="img/pika_chart.jpg">
-            <div class="opensea">
-                <img class="supply" src="img/pika_supply.jpg">
-                <div class="pika-links">
-                    <a class="oslink" href="https://opensea.io/collection/acclimatedmooncats?search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]=50&search[numericTraits][0][ranges][0][max]=60&search[sortBy]=PRICE&search[stringTraits][0][name]=Coat&search[stringTraits][0][values][0]=Yellow%20Tabby" target="_blank">Pikachu (all)</a><br>
+            <img class="chart" src="img/golden_chart.jpg">
+            <div class="golden-links">
+                <div class="link-grid">
+                    <div class="character-name">Golden Lucky Cat (all)</div>
+                    <a class="marketplace-link" id="golden-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="golden-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
                 </div>
             </div>
-            <div class="disclaimer">
+            <img class="chart" src="img/pikachu_chart.jpg">
+            <div class="pikachu-links">
+                <div class="link-grid">
+                    <div class="character-name">Pikachu (all)</div>
+                    <a class="marketplace-link" id="pikachu-os-link" href="#" target="_blank"><div class="opensea-logo"></div></a>
+                    <a class="marketplace-link" id="pikachu-blur-link" href="#" target="_blank"><div class="blur-logo"></div></a>    
+                </div>
+            </div>
+            <div class="info-box">
                 <h2>Disclaimer</h2>
-                <p>My goal with these charts is to document the community narratives of character cats. These are not official traits, hence they are subjective. They are based on community feedback and observation of the market, but ultimately they represent my personal view. My intention is to keep them as stable and reliable as possible, but when I see the narrative shifting, I reserve the right to change these charts accordingly. Nothing on this website is a financial advice.</p>
+                <p>My goal with these charts is to document the community narratives of character cats. These are not official traits, hence they are subjective. The charts are based on community feedback and observation of the market, but ultimately they represent my personal view. My intention is to keep them as stable and reliable as possible, but when I see the narrative shifting, I reserve the right to change these charts accordingly. Nothing on this website is a financial advice.</p>
+            </div>
+            <div class="info-box">
+                <h2>Change History</h2>
+                <ul>
+                    <li>4/Dec/2023
+                        <ul>
+                            <li>The Garfield chart got updated: Old range: 16-49. New range: 20-45. The premium (two stars) range did not change.</li>
+                            <li>The Cheshire cat chart got updated: Old range: 265-320. New range: 265-315. Old premium (two stars) range: 280-305. New premium (two stars) range: 275-305.</li>
+                            <li>The Pink Panther chart got fixed, it was missing the hue range 355-0. These got added to the premium (two stars) range.</li>
+                            <li>The Zombie chart got updated: Old range: 115-170. New range: 115-165. Old premium (two stars) range: 130-155. New premium (two stars) range: 125-155.</li>
+                            <li>The Golden Lucky chart got updated: Old range: 46-56. New Range: 46-58.</li>
+                        </ul>
+                    </li>
+                    <li>20/Aug/2023
+                        <ul>
+                            <li>A new character got added to the website: Pikachu.</li>
+                        </ul>
+                    </li>
+                    <li>21/Aug/2022
+                        <ul>
+                            <li>Two new characters got added to the website: Simba and Golden Lucky cat.</li>
+                        </ul>
+                    </li>
+                    <li>3/Oct/2021
+                        <ul>
+                            <li>The Pink Panther chart got updated: Old range: 325 - 5. New range: 325-10. Additionally a premium (two stars) range got introduced: 335 - 355.</li>
+                        </ul>
+                    </li>
+                    <li>9/July/2021
+                        <ul>
+                            <li>Initial release of the website with charts for Garfields, Cheshires cats, Pink Panthers, Aliens and Zombies.</li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
         </div>
+
+        <script>
+            const CCDEF =
+            {
+                "garfield":{"coatPattern":"Tabby","coatSaturation":"Normal","coatHue":["Orange"],"coatHuePremium":["Orange"],"hueMin":20,"hueMax":45,"huePremiumMin":25,"huePremiumMax":40,"expressionPremium":["Smiling","Pouting","Grumpy"]},
+                "cheshire":{"coatPattern":"Tabby","coatSaturation":"Pale","coatHue":["Purple","Magenta"],"coatHuePremium":["Purple","Magenta"],"hueMin":265,"hueMax":315,"huePremiumMin":275,"huePremiumMax":305,"expressionPremium":["Smiling"]},
+                "pinkpanther":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Fuchsia","Red"],"coatHuePremium":["Fuchsia","Red"],"hueMin":325,"hueMax":10,"huePremiumMin":335,"huePremiumMax":355},
+                "alien":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Sky Blue","Blue"],"coatHuePremium":["Sky Blue"],"hueMin":195,"hueMax":235,"huePremiumMin":205,"huePremiumMax":225},
+                "zombie":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Green","Teal"],"coatHuePremium":["Green","Teal"],"hueMin":115,"hueMax":165,"huePremiumMin":125,"huePremiumMax":155},
+                "simba":{"coatPattern":"Pure","coatSaturation":"Normal","coatHue":["Orange"],"hueMin":20,"hueMax":45},
+                "golden":{"coatPattern":"Pure","coatSaturation":"Normal","coatHue":["Yellow"],"hueMin":46,"hueMax":58},
+                "pikachu":{"coatPattern":"Tabby","coatSaturation":"Normal","coatHue":["Yellow"],"hueMin":50,"hueMax":60}
+            };
+
+            const BASE_OS_URL = "https://opensea.io/collection/acclimatedmooncats?search[sortAscending]=true&search[sortBy]=PRICE";
+            const BASE_BLUR_URL = "https://blur.io/collection/acclimatedmooncats?traits=";
+            const HUE_RANGE_MAX = 359;
+            
+            function generateMarketplaceUrls(){
+                document.getElementById("garfield-os-link").href = getOSUrl("garfield",false);
+                document.getElementById("garfield-premium-os-link").href = getOSUrl("garfield",true);
+                document.getElementById("cheshire-os-link").href = getOSUrl("cheshire",false);
+                document.getElementById("cheshire-premium-os-link").href = getOSUrl("cheshire",true);
+                document.getElementById("pinkpanther-os-link").href = getOSUrl("pinkpanther",false);
+                document.getElementById("pinkpanther-premium-os-link").href = getOSUrl("pinkpanther",true);
+                document.getElementById("alien-os-link").href = getOSUrl("alien",false);
+                document.getElementById("alien-premium-os-link").href = getOSUrl("alien",true);
+                document.getElementById("zombie-os-link").href = getOSUrl("zombie",false);
+                document.getElementById("zombie-premium-os-link").href = getOSUrl("zombie",true);
+                document.getElementById("simba-os-link").href = getOSUrl("simba",false);
+                document.getElementById("golden-os-link").href = getOSUrl("golden",false);
+                document.getElementById("pikachu-os-link").href = getOSUrl("pikachu",false);
+
+                document.getElementById("garfield-blur-link").href = getBlurUrl("garfield",false);
+                document.getElementById("garfield-premium-blur-link").href = getBlurUrl("garfield",true);
+                document.getElementById("cheshire-blur-link").href = getBlurUrl("cheshire",false);
+                document.getElementById("cheshire-premium-blur-link").href = getBlurUrl("cheshire",true);
+                document.getElementById("pinkpanther-blur-link").href = getBlurUrl("pinkpanther",false);
+                document.getElementById("pinkpanther-premium-blur-link").href = getBlurUrl("pinkpanther",true);
+                document.getElementById("alien-blur-link").href = getBlurUrl("alien",false);
+                document.getElementById("alien-premium-blur-link").href = getBlurUrl("alien",true);
+                document.getElementById("zombie-blur-link").href = getBlurUrl("zombie",false);
+                document.getElementById("zombie-premium-blur-link").href = getBlurUrl("zombie",true);
+                document.getElementById("simba-blur-link").href = getBlurUrl("simba",false);
+                document.getElementById("golden-blur-link").href = getBlurUrl("golden",false);
+                document.getElementById("pikachu-blur-link").href = getBlurUrl("pikachu",false);
+            }
+
+            function getOSUrl(charCatName, premium){
+                var hueMin;
+                var hueMax;
+                var coatHue;
+                var expressionParams;
+
+                if (premium){
+                    hueMin = CCDEF[charCatName].huePremiumMin;
+                    hueMax = CCDEF[charCatName].huePremiumMax;
+                    coatHue = CCDEF[charCatName].coatHuePremium;
+
+                    if (CCDEF[charCatName].expressionPremium){
+                        expressionParams = "search[stringTraits][3][name]=Expression";
+                        CCDEF[charCatName].expressionPremium.forEach((element, index) => {
+                            expressionParams += "&search[stringTraits][3][values]["+index+"]="+element;
+                        });
+                    }
+                }
+                else{
+                    hueMin = CCDEF[charCatName].hueMin;
+                    hueMax = CCDEF[charCatName].hueMax;
+                    coatHue = CCDEF[charCatName].coatHue;
+                }
+
+                var coatHueParams = "search[stringTraits][0][name]=Coat%20Hue";
+                coatHue.forEach((element, index) => {
+                        coatHueParams += "&search[stringTraits][0][values]["+index+"]="+element;
+                });
+
+                //OS can't handle the hue range if it the range max is in the middle of a filter range
+                if (hueMin > hueMax) hueMax = HUE_RANGE_MAX;
+
+                var hueParams = "search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]="+hueMin+"&search[numericTraits][0][ranges][0][max]="+hueMax;    
+                var patternParams = "search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]="+CCDEF[charCatName].coatPattern;
+                var saturationParams = "search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]="+CCDEF[charCatName].coatSaturation;
+
+                return BASE_OS_URL + "&" + hueParams + "&" + coatHueParams + "&" + patternParams + "&" + saturationParams + (expressionParams ? ("&" + expressionParams) : "");
+            }
+
+            function getBlurUrl(charCatName, premium){
+                var hueMin;
+                var hueMax;
+                var coatHue;
+                var expressionParams;
+                
+                if (premium){
+                    hueMin = CCDEF[charCatName].huePremiumMin;
+                    hueMax = CCDEF[charCatName].huePremiumMax;
+                    coatHue = CCDEF[charCatName].coatHuePremium;
+
+                    if (CCDEF[charCatName].expressionPremium){
+                        expressionParams = "\"Expression\":[";
+                        CCDEF[charCatName].expressionPremium.forEach((element, index) => {
+                            if (index > 0) expressionParams += ",";
+                            expressionParams += "\"" + element + "\"";
+                        });
+                        expressionParams += "]";
+                    }
+                }
+                else{
+                    hueMin = CCDEF[charCatName].hueMin;
+                    hueMax = CCDEF[charCatName].hueMax;
+                    coatHue = CCDEF[charCatName].coatHue;
+                }
+
+                var coatHueParams = "\"Coat+Hue\":[";
+                coatHue.forEach((element, index) => {
+                    if (index > 0) coatHueParams += ",";
+                    coatHueParams += "\"" + element + "\"";
+                });
+                coatHueParams += "]";
+
+                var hueParams = "\"Hue\":[";
+                if (hueMin > hueMax) hueMax += HUE_RANGE_MAX + 1;
+                for (let i = hueMin; i <= hueMax; i++) {
+                    if (i > hueMin) hueParams += ",";
+                    var hue = i;
+                    if (hue > HUE_RANGE_MAX) hue -= HUE_RANGE_MAX + 1;
+                    hueParams += "\"" + hue + "\"";
+                }
+                hueParams += "]";
+
+                console.log(hueParams);
+
+                var patternParams = "\"Coat+Pattern\":[\"" + CCDEF[charCatName].coatPattern + "\"]";
+                var saturationParams = "\"Coat+Saturation\":[\"" + CCDEF[charCatName].coatSaturation + "\"]";
+
+                return (BASE_BLUR_URL + "{" + hueParams + "," + coatHueParams + "," + patternParams + "," + saturationParams + (expressionParams ? ("," + expressionParams) : "") + "}");
+            }
+
+        </script>
+
     </body>
 </html>

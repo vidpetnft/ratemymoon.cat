@@ -15,93 +15,174 @@ body {
 .chart {
     width: 1200px;
 }
-.supply {
-    width: 1200px;
-}
-.opensea
-{
-    font-size: 20px;
-}
+
 .garfield-links
 {
     position: relative;
-    top:-150px;
-    left:200px;
-    width:250px;
+    top:-156px;
+    left:60px;
+    width:234px;
 }
 .cheshire-links
 {
     position: relative;
-    top:-144px;
+    top:-166px;
     left:56px;
     width:250px;
 }
-.pp-links
+.pinkpanther-links
 {
     position: relative;
-    top:-110px;
-    left:210px;
-    width:250px;
+    top:-134px;
+    left:124px;
+    width:260px;
 }
+.pinkpanther-links-comment
+{
+    width: 800px;
+    margin-top: 20px;
+    color: white;
+    font-size: 9px;
+}
+
 .alien-links
 {
     position: relative;
-    top:-110px;
-    left:215px;
-    width:250px;
+    top: -126px;
+    left: 174px;
+    width:216px;
 }
 .zombie-links
 {
     position: relative;
-    top:-120px;
-    left:60px;
-    width:250px;
+    top:-116px;
+    left:62px;
+    width:226px;
 }
 .simba-links
 {
     position: relative;
-    top:-56px;
-    left:50px;
-    width:250px;
+    top:-74px;
+    left:296px;
+    width:168px;
 }
-.gold-links
+.golden-links
 {
     position: relative;
-    top:-86px;
-    left:680px;
-    width:250px;
+    top:-72px;
+    left:250px;
+    width:274px;
 }
 
-.pika-links
+.pikachu-links
 {
     position: relative;
-    top:-58px;
-    left:380px;
-    width:250px;
+    top:-66px;
+    left:284px;
+    width:206px;
 }
 
-.disclaimer
+.info-box
 {
     color: #fff;
-    font-size: 17px;
+    background: black;
+    font-size: 14px;
     width: 800px;
-    padding: 10px 10px 20px 10px;
-    margin: 50px 200px 100px 200px;
+    margin: 100px 200px 100px 200px;
+    padding: 10px 10px 30px 10px;
     border-style: solid;
     border-width: 1px;
     border-color: #fff;
-    text-align: center
 }
 
-.disclaimer h2 {
+.info-box p
+{
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 6px;
 }
 
-.oslink {
-    color: black;
+.info-box h2
+{
+    font-size: 18px;
+    text-align: center;
 }
+
+.info-box ul
+{
+    padding-left: 20px;
+    font-weight: bolder;
+}
+
+.info-box ul ul 
+{
+    padding-left: 40px;
+    font-weight: normal;
+}
+
+.info-box li
+{
+    padding-top: 5px;
+}
+
+.link-grid
+{
+    display: grid;
+    grid-template-columns: auto 24px 24px;
+    column-gap: 5px;
+}
+
+.character-name
+{
+    font-size: 18px;
+    color:black;
+}
+
+.marketplace-link
+{
+    height: 24px;
+}
+
+.marketplace-logo
+{
+    width: 24px;
+}
+
+.opensea-logo
+{
+    width: 24px;
+    height: 24px;
+    background: url("img/os-logo-passive.png") no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+.opensea-logo:hover
+{
+    background: url("img/os-logo.png") no-repeat;
+    background-size: contain;
+}
+
+.blur-logo
+{
+    width: 24px;
+    height: 24px;
+    background: url("img/blur-logo-passive.png") no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+.blur-logo:hover
+{
+    background: url("img/blur-logo.png") no-repeat;
+    background-size: contain;
+}
+
+.link-divider
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0.4px solid black;
+}
+
 .topbar {
     overflow: hidden;
 }
