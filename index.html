@@ -128,7 +128,7 @@
             </div>
             <div class="info-box">
                 <h2>Disclaimer</h2>
-                <p>My goal with these charts is to document the community narratives of character cats. These are not official traits, hence they are subjective. The charts are based on community feedback and observation of the market, but ultimately they represent my personal view. My intention is to keep them as stable and reliable as possible, but when I see the narrative shifting, I reserve the right to change these charts accordingly. Nothing on this website is a financial advice, please do your own research.</p>
+                <p>The owner of these charts is the <a href="https://mooncatdao.org/" target="_blank">MoonCat DAO</a>. Our goal is to document the community narratives of character cats. These are not official traits, hence they are subjective. The charts are based on community feedback and observation of the market, but ultimately they represent the view of the MoonCat DAO. Our intention is to keep them as stable and reliable as possible, but when we see the narrative shifting, the MoonCat DAO reserves the right to change these charts accordingly. Nothing on this website is a financial advice, please do your own research.</p>
             </div>
             <div class="info-box">
                 <h2>Change History</h2>
@@ -172,7 +172,7 @@
             {
                 "garfield":{"coatPattern":"Tabby","coatSaturation":"Normal","coatHue":["Orange"],"coatHuePremium":["Orange"],"hueMin":20,"hueMax":45,"huePremiumMin":25,"huePremiumMax":40,"expressionPremium":["Smiling","Pouting","Grumpy"]},
                 "cheshire":{"coatPattern":"Tabby","coatSaturation":"Pale","coatHue":["Purple","Magenta"],"coatHuePremium":["Purple","Magenta"],"hueMin":265,"hueMax":315,"huePremiumMin":275,"huePremiumMax":305,"expressionPremium":["Smiling"]},
-                "pinkpanther":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Fuchsia","Red"],"coatHuePremium":["Fuchsia","Red"],"hueMin":325,"hueMax":10,"huePremiumMin":335,"huePremiumMax":355},
+                "pinkpanther":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Fuchsia","Red"],"coatHuePremium":["Fuchsia","Red"],"hueMin":325,"hueMax":10,"huePremiumMin":335,"huePremiumMax":359},
                 "alien":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Sky Blue","Blue"],"coatHuePremium":["Sky Blue"],"hueMin":195,"hueMax":235,"huePremiumMin":205,"huePremiumMax":225},
                 "zombie":{"coatPattern":"Pure","coatSaturation":"Pale","coatHue":["Green","Teal"],"coatHuePremium":["Green","Teal"],"hueMin":115,"hueMax":165,"huePremiumMin":125,"huePremiumMax":155},
                 "simba":{"coatPattern":"Pure","coatSaturation":"Normal","coatHue":["Orange"],"hueMin":20,"hueMax":45},
@@ -180,7 +180,7 @@
                 "pikachu":{"coatPattern":"Tabby","coatSaturation":"Normal","coatHue":["Yellow"],"hueMin":50,"hueMax":60}
             };
 
-            const BASE_OS_URL = "https://opensea.io/collection/acclimatedmooncats?search[sortAscending]=true&search[sortBy]=PRICE";
+            const BASE_OS_URL = "https://opensea.io/collection/acclimatedmooncats?search[resultModel]=ASSETS&search[sortAscending]=true&search[sortBy]=PRICE";
             const BASE_BLUR_URL = "https://blur.io/collection/acclimatedmooncats?traits=";
             const HUE_RANGE_MAX = 359;
             
@@ -218,7 +218,7 @@
                 var hueMin;
                 var hueMax;
                 var coatHue;
-                var expressionParams;
+                var expressionTraits;
 
                 if (premium){
                     hueMin = CCDEF[charCatName].huePremiumMin;
@@ -226,10 +226,12 @@
                     coatHue = CCDEF[charCatName].coatHuePremium;
 
                     if (CCDEF[charCatName].expressionPremium){
-                        expressionParams = "search[stringTraits][3][name]=Expression";
+                        expressionTraits = "{\"traitType\":\"Expression\",\"values\":[";
                         CCDEF[charCatName].expressionPremium.forEach((element, index) => {
-                            expressionParams += "&search[stringTraits][3][values]["+index+"]="+element;
+                            if (index > 0) expressionTraits += ",";
+                            expressionTraits += "\"" + element + "\"";
                         });
+                        expressionTraits += "]}";
                     }
                 }
                 else{
@@ -238,19 +240,23 @@
                     coatHue = CCDEF[charCatName].coatHue;
                 }
 
-                var coatHueParams = "search[stringTraits][0][name]=Coat%20Hue";
+                var coatHueParams="";
                 coatHue.forEach((element, index) => {
-                        coatHueParams += "&search[stringTraits][0][values]["+index+"]="+element;
+                    if (index > 0) coatHueParams += ",";
+                    coatHueParams += "\"" + element + "\"";
                 });
 
                 //OS can't handle the hue range if it the range max is in the middle of a filter range
                 if (hueMin > hueMax) hueMax = HUE_RANGE_MAX;
 
-                var hueParams = "search[numericTraits][0][name]=Hue&search[numericTraits][0][ranges][0][min]="+hueMin+"&search[numericTraits][0][ranges][0][max]="+hueMax;    
-                var patternParams = "search[stringTraits][1][name]=Coat%20Pattern&search[stringTraits][1][values][0]="+CCDEF[charCatName].coatPattern;
-                var saturationParams = "search[stringTraits][2][name]=Coat%20Saturation&search[stringTraits][2][values][0]="+CCDEF[charCatName].coatSaturation;
+                var coatHueTraits = "{\"traitType\":\"Coat+Hue\",\"values\":["+coatHueParams+"]}";
+                var coatPatternTraits = "{\"traitType\":\"Coat+Pattern\",\"values\":[\""+CCDEF[charCatName].coatPattern+"\"]}";
+                var coatSaturationTraits = "{\"traitType\":\"Coat+Saturation\",\"values\":[\""+CCDEF[charCatName].coatSaturation+"\"]}"
 
-                return BASE_OS_URL + "&" + hueParams + "&" + coatHueParams + "&" + patternParams + "&" + saturationParams + (expressionParams ? ("&" + expressionParams) : "");
+                var traitsParam = "traits=["+coatHueTraits+","+coatPatternTraits+","+coatSaturationTraits+ (expressionTraits ? ("," + expressionTraits) : "") + "]";
+                var numericTraitsParam = "numericTraits=[{\"traitType\":\"Hue\",\"min\":"+hueMin+",\"max\":"+hueMax+"}]";
+
+                return BASE_OS_URL + "&" + traitsParam + "&" + numericTraitsParam;
             }
 
             function getBlurUrl(charCatName, premium){
